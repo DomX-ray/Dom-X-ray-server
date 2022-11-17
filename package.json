@@ -1,0 +1,22 @@
+{
+  "name": "dom-x-ray-be",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development nodemon ./bin/www"
+  },
+  "author": "devsong25@gmail.com",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "dotenv": "^16.0.3",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "puppeteer": "^19.2.2"
+  },
+  "devDependencies": {
+    "debug": "~2.6.9",
+    "eslint": "^8.27.0",
+    "nodemon": "^2.0.20"
+  }
+}
