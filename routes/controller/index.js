@@ -12,18 +12,10 @@ const parseDomTree = async (req, res, next) => {
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--shm-size=1gb",
         "--use-gl=egl",
       ],
     });
     const [page] = await browser.pages();
-
-    const headers = {
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
-    };
 
     await page.goto(req.query.searchUrl, {
       waitUntil: "networkidle2",
@@ -55,9 +47,7 @@ const parseDomTree = async (req, res, next) => {
 
     await browser.close();
 
-    res.status(OK).send({
-      parsedData: tree,
-    });
+    res.status(OK).send({ parsedData: tree });
   } catch (error) {
     next(error);
   }
