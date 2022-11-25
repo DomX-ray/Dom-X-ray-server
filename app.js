@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cors = require("cors");
 
 const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require("./constants/statusCode");
 
@@ -14,11 +15,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL, optionSuccessStatus:200 }));
 
 app.use("/", indexRouter);
 
 app.use((req, res, next) => {
-  next(createError( NOT_FOUND));
+  next(createError(NOT_FOUND));
 });
 
 app.use((err, req, res, next) => {
