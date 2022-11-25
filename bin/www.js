@@ -1,19 +1,8 @@
-/*eslint-env es6*/
 require("dotenv").config();
 
 const app = require("../app");
 const debug = require("debug")("dom-x-ray-be:server");
 const http = require("http");
-
-const port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
-
-const server = http.createServer(app);
-
-server.listen(port);
-console.log("server connected");
-server.on("error", onError);
-server.on("listening", onListening);
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -28,6 +17,14 @@ const normalizePort = (val) => {
 
   return false;
 };
+
+const port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+
+const server = http.createServer(app);
+
+server.listen(port);
+console.log(`${port}로 연결되었습니다.`)
 
 const onError = (error) => {
   if (error.syscall !== "listen") {
@@ -55,3 +52,6 @@ const onListening = () => {
   const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
   debug("Listening on " + bind);
 };
+
+server.on("error", onError);
+server.on("listening", onListening);
