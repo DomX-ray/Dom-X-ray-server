@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { OK } = require("../constants/statusCode");
+const Controller = require("./controller");
+const isAValidUrl = require("./middleware/validateUrl");
 
-router.get("/", (req, res, next) => {
-  res.render("index", { title: "Express" });
-});
+router.get("/", Controller.getMain);
+
+router.get("/visualization", isAValidUrl, Controller.parseDomTree);
 
 module.exports = router;
