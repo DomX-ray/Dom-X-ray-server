@@ -25,7 +25,7 @@ app.use((err, req, res, next) => {
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   res.status(err.status || INTERNAL_SERVER_ERROR);
-  res.send("error", err.status, err.message, err.stack);
+  res.json({status: err.status, message: err.message, stack: err.stack});
 });
 
 module.exports = app;
