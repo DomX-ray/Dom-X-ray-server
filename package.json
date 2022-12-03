@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./bin/www",
-    "start": "node ./bin/www",
-    "postinstall": "node node_modules/puppeteer/install.js"
+    "start": "node ./bin/www"
   },
   "author": "devsong25@gmail.com",
   "engines": {
