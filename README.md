@@ -1,5 +1,5 @@
 # Dom-X-Ray
-
+https://user-images.githubusercontent.com/95201149/207520427-9b3aad81-9bf3-4e14-a306-c2ada50c8371.mp4
 - Vanilla Javascript로 만든 Dom Tree 시각화 웹사이트입니다.
 - 원하는 웹사이트의 url만으로 Dom Tree의 계층 구조를 트리 형태로 확인할 수 있습니다.
 
