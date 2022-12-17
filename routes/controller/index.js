@@ -9,6 +9,8 @@ const getMain = (req, res, next) => {
 const parseDomTree = async (req, res, next) => {
   try {
     const browser = await puppeteer.launch({
+      headless: true,
+      executablePath: "/Users/songyi/Desktop/dom-tree/Dom-X-Ray-Be/node_modules/puppeteer/.local-chromium/mac-1036745/chrome-mac/Chromium.app/Contents/MacOS/Chromium",
       args: ["--no-sandbox", "--disable-setuid-sandbox", "--use-gl=egl"],
     });
     const [page] = await browser.pages();

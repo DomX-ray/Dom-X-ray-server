@@ -21,11 +21,12 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   logger.error(err.status, err.message, err.stack);
+
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   res.status(err.status || INTERNAL_SERVER_ERROR);
-  res.json({status: err.status, message: err.message, stack: err.stack});
+  res.json({status: err.status});
 });
 
 module.exports = app;
